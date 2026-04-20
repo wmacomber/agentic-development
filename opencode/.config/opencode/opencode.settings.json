@@ -1,0 +1,38 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "instructions": ["~/.config/opencode/reference/tooling.md"],
+  "default_agent": "team-lead",
+  "permission": {
+    "bash": {
+      "*": "ask",
+      "rg *": "allow",
+      "grep *": "allow",
+      "jq *": "allow",
+      "sed *": "allow",
+      "head *": "allow",
+      "tail *": "allow",
+      "ls *": "allow",
+      "find *": "allow",
+      "pwd": "allow",
+      "realpath *": "allow",
+      "git status*": "allow",
+      "git diff*": "allow",
+      "git log*": "allow",
+      "git show*": "allow"
+    },
+    "edit": "ask",
+    "skill": {
+      "*": "ask",
+      "caveman": "allow",
+      "caveman-help": "allow",
+      "caveman-review": "allow",
+      "caveman-commit": "allow",
+      "planning-with-files": "allow",
+      "operability-readiness": "allow",
+      "logging-guidance": "allow"
+    }
+  },
+  "share": "disabled",
+  "autoupdate": "notify",
+  "snapshot": false
+}
