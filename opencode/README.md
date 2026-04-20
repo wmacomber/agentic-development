@@ -39,16 +39,15 @@ export/
 
 ## Installation
 
-1. Copy `export/.config/opencode/` to `~/.config/opencode/`.
-2. Or run [update.sh](/mnt/c/code/opencode/opencode-config/export/update.sh) from inside `export/` to sync it into `~/.config/opencode/`.
-3. Open [opencode.json](/mnt/c/code/opencode/opencode-config/export/.config/opencode/opencode.json) and replace the example provider, API base URL, API key source, and model names with your own values.
-4. Review the included agents, commands, references, and skills before first use.
+1. Copy `.config/opencode/` to `~/.config/opencode/`.
+2. Open [opencode.settings.json](.config/opencode/opencode.settings.json) and copy the necessary properties into your existing `~/.config/opencode/opencode.json` file.
+3. Review the included agents, commands, references, and skills before first use.
 
 This export does not ship credentials, tokens, or personal proxy settings. You must supply your own provider configuration.
 
 ## Global Behavior
 
-The pack includes a minimal global [AGENTS.md](/mnt/c/code/opencode/opencode-config/export/.config/opencode/AGENTS.md) that applies caveman-style terse response behavior and nothing else. It does not include repository discovery policy, onboarding rules, or other repo-specific guidance.
+The pack includes a minimal global [AGENTS.md](.config/opencode/AGENTS.md) that applies caveman-style terse response behavior and nothing else. It does not include repository discovery policy, onboarding rules, or other repo-specific guidance.
 
 ## How To Use It
 
@@ -176,7 +175,7 @@ flowchart TD
 
 ## Runtime Config Customization
 
-The included [opencode.settings.json](/mnt/c/code/opencode/opencode-config/export/.config/opencode/opencode.settings.json) is a sanitized group of settings, not a ready-to-run personal profile.  It is made to have its pieces copy/pasted into your *real* opencode.json file.  It isn't named `opencode.json` in case you accidentally copy this repo over your existing stuff - at least you won't lose your model setup and any custom opencode configs if you do.
+The included [opencode.settings.json](.config/opencode/opencode.settings.json) is a sanitized group of settings, not a ready-to-run personal profile.  It is made to have its pieces copy/pasted into your *real* opencode.json file.  It isn't named `opencode.json` in case you accidentally copy this repo over your existing stuff - at least you won't lose your model setup and any custom opencode configs if you do.
 
 You may also want to adjust:
 
@@ -196,18 +195,12 @@ The config intentionally keeps:
 After copying or modifying the pack, run:
 
 ```bash
-jq empty export/.config/opencode/opencode.settings.json
+jq empty .config/opencode/opencode.settings.json
 bash -n export/update.sh
-rg -n "backend-python-agent|frontend-react-agent|db-postgres-agent|sqlalchemy-alembic|orm-contract-tests|team-balanced-implementation|team-greenfield-build|team-aggressive-fix-pass|team-audit-review" export/.config/opencode
-find export/.config/opencode -type f | sort
+rg -n "backend-python-agent|frontend-react-agent|db-postgres-agent|sqlalchemy-alembic|orm-contract-tests|team-balanced-implementation|team-greenfield-build|team-aggressive-fix-pass|team-audit-review" .config/opencode
+find .config/opencode -type f | sort
 ```
-
-Also verify:
-
-- the Mermaid diagram renders correctly on GitHub
-- README references match files that actually exist in the export
-- no personal tokens, private URLs, or machine-local assumptions were reintroduced
 
 ## Attribution
 
-See [ATTRIBUTION.md](/mnt/c/code/opencode/opencode-config/export/ATTRIBUTION.md) for the included external-origin skills and their source repositories.
+See [ATTRIBUTION.md](ATTRIBUTION.md) for the included external-origin skills and their source repositories.
