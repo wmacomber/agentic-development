@@ -24,10 +24,10 @@ The pack is intentionally narrow:
 ## Included Layout
 
 ```text
-export/
+opencode/
 ├── .config/opencode/
 │   ├── AGENTS.md
-│   ├── opencode.json
+│   ├── opencode.settings.json
 │   ├── agents/
 │   ├── commands/
 │   ├── reference/
